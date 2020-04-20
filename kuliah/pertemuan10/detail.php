@@ -1,7 +1,10 @@
 <?php
 //Mengecek apakah ada id yang dikirimkan
 //Jika tidak maka akan dikembalikan ke halaman index.php
-
+if (!isset($_GET['id'])) {
+  header("location: latihan3.php");
+  exit;
+}
 require 'functions.php';
 
 //Mengambil id dari url
