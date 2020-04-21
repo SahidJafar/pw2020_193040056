@@ -35,7 +35,7 @@ $mahasiswa = $rows;
 <body>
   <!-- Navbar -->
 
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-warning">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
@@ -46,7 +46,7 @@ $mahasiswa = $rows;
     </div>
   </nav>
 
-  <div class="jumbotron bg-light">
+  <div class="jumbotron bg-light" style="margin: 80px;">
     <h3>Daftar Mahasiswa</h3>
 
     <table border=" 1" cellpadding="10" cellspacing="0">
@@ -77,7 +77,6 @@ $mahasiswa = $rows;
 
     </table>
   </div>
-
 
   <!-- Optional JavaScript -->
   <script src="js/bootstrap.min.js"></script>
