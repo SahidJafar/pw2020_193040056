@@ -32,12 +32,12 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
     </div>
   </nav>
 
-  <div class="jumbotron bg-light" style="margin: 80px;">
-
+  <!-- Daftar Mahasiswa -->
+  <div class="jumbotron bg-light text-center" style="margin: 80px;">
     <h3>Daftar Mahasiswa</h3>
 
-
-    <table border="1" cellpadding="10" cellspacing="0">
+    <!--Tabel  -->
+    <table border=" 1" cellpadding="10" cellspacing="5" align="center">
       <tr>
         <th>Id</th>
         <th>Nama</th>

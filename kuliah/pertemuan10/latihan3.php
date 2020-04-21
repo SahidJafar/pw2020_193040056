@@ -29,14 +29,15 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
     </div>
   </nav>
 
-  <div class="jumbotron bg-light" style="margin: 80px;">
-
+  <!-- Daftar Mahasiswa -->
+  <div class="jumbotron bg-light text-center" style="margin: 80px;">
     <h3>Daftar Mahasiswa</h3>
 
-    <a href="">Tambah Data Mahasiswa</a>
+    <a href="tambah.php">Tambah Data Mahasiswa</a>
     <br><br>
 
-    <table border="1" cellpadding="10" cellspacing="0">
+    <!-- Tabel -->
+    <table border=" 1" cellpadding="10" cellspacing="5" align="center">
       <tr>
         <th>Id</th>
         <th>Nama</th>
