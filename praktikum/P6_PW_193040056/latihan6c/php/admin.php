@@ -34,7 +34,7 @@ $laptop = query("SELECT * FROM laptop");
         <td><?= $i; ?></td>
         <td>
           <a href=""><button>Ubah</button></a>
-          <a href=""><button>Hapus</button></a>
+          <a href="hapus.php?id=<? $l['Id'] ?>" onclick="return confirm('Hapus Data??')"><button>Hapus</button></a>
         </td>
         <td><img src="../assets/img/<?= $l['Foto']; ?>" height="300px" width="320px" alt=""></td>
         <td><?= $l['Nama']; ?></td>
