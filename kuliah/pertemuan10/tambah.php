@@ -30,7 +30,7 @@ if (isset($_POST['tambah'])) {
 
 <body>
 
-  <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-warning">
+  <nav class="navbar  fixed-top navbar-expand-sm navbar-light bg-warning">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
@@ -42,56 +42,58 @@ if (isset($_POST['tambah'])) {
     </div>
   </nav>
 
-  <div class="jumbotron bg-light" style="margin: 100px;">
-    <h3>Form Tambah Data Mahasiswa</h3>
-    <table border="0" cellspacing="10">
-      <form action="" method="POST">
-        <tr>
-          <label>
-            <td>Nama</td>
-            <td>:</td>
-            <td> <input type="text" name="nama" autofocus required> </td>
-          </label>
-        </tr>
+  <div class="container" style="margin-top: 200px;">
+    <div class="jumbotron bg-light text-center">
+      <h3>Form Tambah Data Mahasiswa</h3>
+      <table border="0" cellspacing="10" align="center">
+        <form action="" method="POST">
+          <tr>
+            <label>
+              <td>Nama</td>
+              <td>:</td>
+              <td> <input type="text" name="nama" autofocus required> </td>
+            </label>
+          </tr>
 
-        <tr>
-          <label>
-            <td> Nrp </td>
-            <td>:</td>
-            <td><input type="text" name="nrp" required></td>
-          </label>
-        </tr>
+          <tr>
+            <label>
+              <td> Nrp </td>
+              <td>:</td>
+              <td><input type="text" name="nrp" required></td>
+            </label>
+          </tr>
 
-        <tr>
-          <label>
-            <td>Email</td>
-            <td>:</td>
-            <td> <input type="text" name="email" required></td>
-          </label>
-        </tr>
+          <tr>
+            <label>
+              <td>Email</td>
+              <td>:</td>
+              <td> <input type="text" name="email" required></td>
+            </label>
+          </tr>
 
-        <tr>
-          <label>
-            <td>Jurusan</td>
-            <td>:</td>
-            <td><input type="text" name="jurusan" required></td>
-          </label>
-        </tr>
+          <tr>
+            <label>
+              <td>Jurusan</td>
+              <td>:</td>
+              <td><input type="text" name="jurusan" required></td>
+            </label>
+          </tr>
 
-        <tr>
-          <label>
-            <td>Gambar</td>
-            <td>:</td>
-            <td><input type="text" name="gambar" required></td>
-          </label>
-        </tr>
+          <tr>
+            <label>
+              <td>Gambar</td>
+              <td>:</td>
+              <td><input type="text" name="gambar" required></td>
+            </label>
+          </tr>
 
-        <tr>
-          <td><button type="submit" name="tambah">TambahData</button>
-          </td>
-        </tr>
-      </form>
-    </table>
+          <tr>
+            <td><button type="submit" name="tambah">TambahData</button>
+            </td>
+          </tr>
+        </form>
+      </table>
+    </div>
   </div>
 
   <!-- Optional JavaScript -->

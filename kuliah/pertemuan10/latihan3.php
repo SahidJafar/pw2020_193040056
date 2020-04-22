@@ -18,7 +18,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 </head>
 
 <body>
-  <nav class="navbar  fixed-top navbar-expand-lg navbar-light bg-warning">
+  <nav class="navbar  fixed-top navbar-expand-sm navbar-light bg-warning">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
@@ -30,34 +30,37 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
   </nav>
 
   <!-- Daftar Mahasiswa -->
-  <div class="jumbotron bg-light text-center" style="margin: 80px;">
-    <h3>Daftar Mahasiswa</h3>
+  <div class="jumbotron bg-light text-center">
+    <h3 style="margin: 150px;">Daftar Mahasiswa</h3>
 
-    <a href="tambah.php">Tambah Data Mahasiswa</a>
-    <br><br>
+    <div class="btn" style="margin-top: -200px;">
+      <a class="btn btn-primary" href="tambah.php" role="button">Tambah Data Mahasiswa</a>
+    </div>
 
     <!-- Tabel -->
-    <table border=" 1" cellpadding="10" cellspacing="5" align="center">
-      <tr>
-        <th>Id</th>
-        <th>Nama</th>
-        <th>Gambar</th>
-        <th>Aksi</th>
-
-      </tr>
-      <?php $i = 1; ?>
-      <?php foreach ($mahasiswa as $m) : ?>
+    <div class="table-responsive" style="margin-top: -50px;">
+      <table class="table" border=" 1" cellpadding="10" cellspacing="5" align="center">
         <tr>
-          <td><?= $i++; ?></td>
-          <td><?= $m['Nama']; ?></td>
-          <td><img src="img/<?= $m['Gambar']; ?>" width="60"></td>
-          <td>
-            <a href="detail.php?id=<?= $m['Id']; ?>">lihat detail</a>
-          </td>
-        </tr>
-      <?php endforeach; ?>
+          <th>Id</th>
+          <th>Nama</th>
+          <th>Gambar</th>
+          <th>Aksi</th>
 
-    </table>
+        </tr>
+        <?php $i = 1; ?>
+        <?php foreach ($mahasiswa as $m) : ?>
+          <tr>
+            <td><?= $i++; ?></td>
+            <td><?= $m['Nama']; ?></td>
+            <td><img src="img/<?= $m['Gambar']; ?>" width="60"></td>
+            <td>
+              <a href="detail.php?id=<?= $m['Id']; ?>">lihat detail</a>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+
+      </table>
+    </div>
   </div>
   <!-- Optional JavaScript -->
   <script src="js/bootstrap.min.js"></script>
