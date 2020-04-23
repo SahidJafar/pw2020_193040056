@@ -29,6 +29,11 @@ $mahasiswa = $rows;
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
 
+  <!-- Jquery -->
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+
+
   <title>Daftar Mahasiswa</title>
 </head>
 
@@ -39,7 +44,7 @@ $mahasiswa = $rows;
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
-          <img src="img/unpas.png" width="50" height="50" class="d-inline-block align-top" alt="">
+          <img src="img/unpas.png" width="80" height="80" class="d-inline-block align-top" alt="">
         </a>
       </div>
       <h3> Fakultas Teknik Universitas Pasundan</h3>
@@ -47,41 +52,50 @@ $mahasiswa = $rows;
   </nav>
 
   <!-- Daftar Mahasiswa -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron bg-light text-center">
+          <h3 style="margin: 150px;">Daftar Mahasiswa</h3>
 
-  <div class="jumbotron bg-light text-center">
-    <h3 style="margin: 150px;">Daftar Mahasiswa</h3>
+          <!-- Tabel -->
+          <div class="table-responsive" style="margin-top: -50px;">
+            <table class="table table-table-responsive-sm table-bordered table-striped table-hover" border=" 1" cellpadding="10" cellspacing="5" align="center">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Nama</th>
+                  <th>Nrp</th>
+                  <th>Email</th>
+                  <th>Jurusan</th>
+                  <th>Gambar</th>
+                  <th>Aksi</th>
 
-    <!-- Tabel -->
-
-    <div class="table-responsive" style="margin-top: -50px;">
-      <table class="table" border=" 1" cellpadding="10" cellspacing="5" align="center">
-        <tr>
-          <th>Id</th>
-          <th>Nama</th>
-          <th>Nrp</th>
-          <th>Email</th>
-          <th>Jurusan</th>
-          <th>Gambar</th>
-          <th>Aksi</th>
-
-        </tr>
-        <?php $i = 1; ?>
-        <?php foreach ($mahasiswa as $m) : ?>
-          <tr>
-            <td><?= $i++; ?></td>
-            <td><?= $m['Nama']; ?></td>
-            <td><?= $m['Nrp']; ?></td>
-            <td><?= $m['Email']; ?></td>
-            <td><?= $m['Jurusan']; ?></td>
-            <td><img src="img/<?= $m['Gambar']; ?>" width="60"></td>
-            <td>
-              <a href="">ubah</a> | <a href="">hapus</a>
-            </td>
-          </tr>
-        <?php endforeach; ?>
-      </table>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $i = 1; ?>
+                <?php foreach ($mahasiswa as $m) : ?>
+                  <tr>
+                    <td><?= $i++; ?></td>
+                    <td><?= $m['Nama']; ?></td>
+                    <td><?= $m['Nrp']; ?></td>
+                    <td><?= $m['Email']; ?></td>
+                    <td><?= $m['Jurusan']; ?></td>
+                    <td><img src="img/<?= $m['Gambar']; ?>" width="60"></td>
+                    <td>
+                      <a href="">ubah</a> | <a href="">hapus</a>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
 
 
 

@@ -14,6 +14,10 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
 
+  <!-- Jquery -->
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+
   <title>Daftar Mahasiswa</title>
 </head>
 
@@ -30,38 +34,48 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
   </nav>
 
   <!-- Daftar Mahasiswa -->
-  <div class="jumbotron bg-light text-center">
-    <h3 style="margin: 150px;">Daftar Mahasiswa</h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron bg-light text-center">
+          <h3 style="margin: 150px;">Daftar Mahasiswa</h3>
 
-    <div class="btn" style="margin-top: -200px;">
-      <a class="btn btn-primary" href="tambah.php" role="button">Tambah Data Mahasiswa</a>
-    </div>
+          <div class="btn" style="margin-top: -200px;">
+            <a class="btn btn-primary" href="tambah.php" role="button">Tambah Data Mahasiswa</a>
+          </div>
 
-    <!-- Tabel -->
-    <div class="table-responsive" style="margin-top: -50px;">
-      <table class="table" border=" 1" cellpadding="10" cellspacing="5" align="center">
-        <tr>
-          <th>Id</th>
-          <th>Nama</th>
-          <th>Gambar</th>
-          <th>Aksi</th>
+          <!-- Tabel -->
+          <div class="table-responsive" style="margin-top: -50px;">
+            <table class="table table-table-responsive-sm table-bordered table-striped table-hover" border=" 1" cellpadding="10" cellspacing="5" align="center">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Nama</th>
+                  <th>Gambar</th>
+                  <th>Aksi</th>
 
-        </tr>
-        <?php $i = 1; ?>
-        <?php foreach ($mahasiswa as $m) : ?>
-          <tr>
-            <td><?= $i++; ?></td>
-            <td><?= $m['Nama']; ?></td>
-            <td><img src="img/<?= $m['Gambar']; ?>" width="60"></td>
-            <td>
-              <a href="detail.php?id=<?= $m['Id']; ?>">lihat detail</a>
-            </td>
-          </tr>
-        <?php endforeach; ?>
-
-      </table>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $i = 1; ?>
+                <?php foreach ($mahasiswa as $m) : ?>
+                  <tr>
+                    <td><?= $i++; ?></td>
+                    <td><?= $m['Nama']; ?></td>
+                    <td><img src="img/<?= $m['Gambar']; ?>" width="60"></td>
+                    <td>
+                      <a href="detail.php?id=<?= $m['Id']; ?>">lihat detail</a>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
   <!-- Optional JavaScript -->
   <script src="js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
