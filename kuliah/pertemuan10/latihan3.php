@@ -38,7 +38,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
     <div class="row">
       <div class="col-md-12">
         <div class="jumbotron bg-light text-center">
-          <h3 style="margin: 150px;">Daftar Mahasiswa</h3>
+          <h3 style="margin: 150px;">DAFTAR MAHASISWA</h3>
 
           <div class="btn" style="margin-top: -200px;">
             <a class="btn btn-primary" href="tambah.php" role="button">Tambah Data Mahasiswa</a>

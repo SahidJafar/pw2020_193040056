@@ -56,7 +56,7 @@ $mahasiswa = $rows;
     <div class="row">
       <div class="col-md-12">
         <div class="jumbotron bg-light text-center">
-          <h3 style="margin: 150px;">Daftar Mahasiswa</h3>
+          <h3 style="margin: 150px;">DAFTAR MAHASISWA</h3>
 
           <!-- Tabel -->
           <div class="table-responsive" style="margin-top: -50px;">
