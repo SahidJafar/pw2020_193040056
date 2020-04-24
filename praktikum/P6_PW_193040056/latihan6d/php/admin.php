@@ -15,10 +15,13 @@ $laptop = query("SELECT * FROM laptop");
 </head>
 
 <body>
+  <div class="add">
+    <a href="tambah.php">Tambah Data</a>
+  </div>
   <table border="1" cellpadding="13" cellspacing="0">
     <tr>
-      <th>No</th>
-      <th>Aksi</th>
+      <th>Id</th>
+      <th>Opsi</th>
       <th>Foto</th>
       <th>Nama</th>
       <th>Processor</th>
@@ -30,8 +33,8 @@ $laptop = query("SELECT * FROM laptop");
       <tr>
         <td><?= $i; ?></td>
         <td>
-          <a href=""><button>Ubah</button></a>
-          <a href=""><button>Hapus</button></a>
+          <button><a href="ubah.php?Id=<?= $l['Id']; ?>">Ubah</a></button>
+          <button><a href="hapus.php?Id=<?= $l['Id']; ?>" onclick="return confirm('Hapus Data??')">Hapus</a></button>
         </td>
         <td><img src="../assets/img/<?= $l['Foto']; ?>" height="300px" width="320px" alt=""></td>
         <td><?= $l['Nama']; ?></td>

@@ -50,3 +50,29 @@ function Hapus($id)
 
     return mysqli_affected_rows($conn);
 }
+
+// Ubah Data
+function ubah($data)
+{
+    $conn = koneksi();
+    $id = htmlspecialchars($data['Id']);
+    $foto = htmlspecialchars($data['foto']);
+    $nama = htmlspecialchars($data['nama']);
+    $processor = htmlspecialchars($data['processor']);
+    $keterangan = htmlspecialchars($data['keterangan']);
+    $harga = htmlspecialchars($data['harga']);
+
+    $query = "UPDATE laptop
+                SET
+                foto ='$foto',
+                nama ='$nama',
+                processor ='$processor',
+                keterangan ='$keterangan',
+                harga ='$harga'
+                WHERE Id = '$id' 
+                ";
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
