@@ -54,7 +54,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa WHERE Id = $id");
           <p><?= $mahasiswa['Email']; ?></p>
           <p><?= $mahasiswa['Jurusan']; ?></p>
 
-          <button><a href="ubah.php?Id=<?= $mahasiswa['Id']; ?>">Ubah</a></button>
+          <button><a href="ubah.php?id=<?= $mahasiswa['Id']; ?>">Ubah</a></button>
           <button><a href="hapus.php?Id=<?= $mahasiswa['Id']; ?>" onclick="return confirm('Hapus Data??')">Hapus</a></button>
         </div>
         <br>

@@ -51,17 +51,16 @@ function hapus($id)
 
   return mysqli_affected_rows($conn);
 }
-
 // Ubah Data
 function ubah($data)
 {
   $conn = koneksi();
-  $id = htmlspecialchars($data['id']);
-  $nama = htmlspecialchars($data['Nama']);
-  $nrp = htmlspecialchars($data['Nrp']);
-  $email = htmlspecialchars($data['Email']);
-  $jurusan = htmlspecialchars($data['Jurusan']);
-  $gambar = htmlspecialchars($data['Gambar']);
+  $id = $data['id'];
+  $nama = htmlspecialchars($data['nama']);
+  $nrp = htmlspecialchars($data['nrp']);
+  $email = htmlspecialchars($data['email']);
+  $jurusan = htmlspecialchars($data['jurusan']);
+  $gambar = htmlspecialchars($data['gambar']);
 
   $query = "UPDATE mahasiswa
                 SET
@@ -70,10 +69,32 @@ function ubah($data)
                 Email ='$email',
                 Jurusan ='$jurusan',
                 Gambar ='$gambar'
-                WHERE id = '$id' 
+                WHERE Id = '$id' 
                 ";
 
   mysqli_query($conn, $query);
 
   return mysqli_affected_rows($conn);
+}
+
+// Searching
+function cari($keyword)
+{
+  $conn = koneksi();
+
+  $query = "SELECT * FROM mahasiswa
+                  WHERE 
+             Nama LIKE '%$keyword%' OR
+             Nrp LIKE '%$keyword%' OR
+             Email LIKE '%$keyword%'OR
+             Jurusan LIKE '%$keyword%'
+            ";
+  $result = mysqli_query($conn, $query);
+
+  $rows = [];
+  while ($row = mysqli_fetch_assoc($result)) {
+    $rows[] = $row;
+  }
+
+  return $rows;
 }

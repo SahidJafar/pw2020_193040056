@@ -56,19 +56,19 @@ function ubah($data)
 {
     $conn = koneksi();
     $id = htmlspecialchars($data['Id']);
-    $foto = htmlspecialchars($data['foto']);
-    $nama = htmlspecialchars($data['nama']);
-    $processor = htmlspecialchars($data['processor']);
-    $keterangan = htmlspecialchars($data['keterangan']);
-    $harga = htmlspecialchars($data['harga']);
+    $foto = htmlspecialchars($data['Foto']);
+    $nama = htmlspecialchars($data['Nama']);
+    $processor = htmlspecialchars($data['Processor']);
+    $keterangan = htmlspecialchars($data['Keterangan']);
+    $harga = htmlspecialchars($data['Harga']);
 
     $query = "UPDATE laptop
                 SET
-                foto ='$foto',
-                nama ='$nama',
-                processor ='$processor',
-                keterangan ='$keterangan',
-                harga ='$harga'
+                Foto ='$foto',
+                Nama ='$nama',
+                Processor ='$processor',
+                Keterangan ='$keterangan',
+                Harga ='$harga'
                 WHERE Id = '$id' 
                 ";
 

@@ -2,17 +2,17 @@
 require 'functions.php';
 
 // Ambil id dari url
-$id = $_GET['Id'];
+$id = $_GET['id'];
 
 // Query mahasiswa berdasarkan id
-$mahasiswa = query("SELECT FROM mahasiswa WHERE Id = $id");
+$m = query("SELECT * FROM mahasiswa WHERE Id = $id");
 
 //Cek apakah tombol tambah sudah ditekan
 if (isset($_POST['ubah'])) {
   if (ubah($_POST) > 0) {
-    echo "<script>
-    alert('data berhasil diubah');
-    document.location.href = 'index.php';
+    echo "<script> 
+        alert('Data berhasil diubah');
+        document.location.href = 'index.php';      
     </script>";
   } else {
     echo "<script> 
@@ -56,12 +56,12 @@ if (isset($_POST['ubah'])) {
       <h3>Form Ubah Data Mahasiswa</h3>
       <table border="0" cellspacing="10" align="center">
         <form action="" method="POST">
-          <input type="hidden" name="Id" value="<?= $mahasiswa['Id']; ?>">
+          <input type="hidden" name="id" value="<?= $m['Id']; ?>">
           <tr>
             <label>
               <td>Nama</td>
               <td>:</td>
-              <td> <input type="text" name="nama" id="Nama" autofocus required value="<?= $mahasiswa['nama']; ?>"> </td>
+              <td> <input type="text" name="nama" id="Nama" autofocus required value="<?= $m['Nama']; ?>"> </td>
             </label>
           </tr>
 
@@ -69,7 +69,7 @@ if (isset($_POST['ubah'])) {
             <label>
               <td> Nrp </td>
               <td>:</td>
-              <td><input type="text" name="nrp" id="Nrp" required value="<?= $mahasiswa['nrp']; ?>"></td>
+              <td><input type="text" name="nrp" id="Nrp" required value="<?= $m['Nrp']; ?>"></td>
             </label>
           </tr>
 
@@ -77,7 +77,7 @@ if (isset($_POST['ubah'])) {
             <label>
               <td>Email</td>
               <td>:</td>
-              <td> <input type="text" name="email" id="Email" required value="<?= $mahasiswa['email']; ?>"></td>
+              <td> <input type="text" name="email" id="Email" required value="<?= $m['Email']; ?>"></td>
             </label>
           </tr>
 
@@ -85,7 +85,7 @@ if (isset($_POST['ubah'])) {
             <label>
               <td>Jurusan</td>
               <td>:</td>
-              <td><input type="text" name="jurusan" id="Jurusan" required value="<?= $mahasiswa['jurusan']; ?>"></td>
+              <td><input type="text" name="jurusan" id="Jurusan" required value="<?= $m['Jurusan']; ?>"></td>
             </label>
           </tr>
 
@@ -93,7 +93,7 @@ if (isset($_POST['ubah'])) {
             <label>
               <td>Gambar</td>
               <td>:</td>
-              <td><input type="text" name="gambar" id="Gambar" required value="<?= $mahasiswa['gambar']; ?>"></td>
+              <td><input type="text" name="gambar" id="Gambar" required value="<?= $m['Gambar']; ?>"></td>
             </label>
           </tr>
 
