@@ -52,7 +52,7 @@ if (isset($_POST['cari'])) {
 
             <!-- Searching -->
             <form action="" method="POST">
-              <input type="text" name="keyword" size="55" placeholder="Masukan yang akan dicari" autocomplete="off" autofocus>
+              <input type="text" name="keyword" size="50" placeholder="Masukan yang akan dicari" autocomplete="off" autofocus>
               <button type="submit" name="cari">Search</button>
             </form>
           </div>
