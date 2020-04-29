@@ -58,7 +58,7 @@ $laptop = query("SELECT * FROM laptop")
 
               <div class="col-sm-3 mb-3">
                 <div class="card  mt-3" style="background-color: black;">
-                  <img class="card-img-top" src="assets/img/<?= $l['Foto'] ?>" alt="Card image cap">
+                  <img class="card-img-top" src="assets/img/<?= $l['Foto'] ?>" alt="Card image cap" height="300" width="150">
                   <div class="card-body" style="background-color: black;">
                     <h5 class="card-title"><?= $l["Nama"] ?></h5>
                     <a href="php/detail.php?Id=<?= $l['Id'] ?>" class="btn btn-primary">Detail</a>
