@@ -28,6 +28,7 @@ if (isset($_POST['cari'])) {
 </head>
 
 <body>
+  <!-- Navbar -->
   <nav class="navbar  fixed-top navbar-expand-sm navbar-light bg-warning">
     <div class="container-fluid">
       <div class="navbar-header">
