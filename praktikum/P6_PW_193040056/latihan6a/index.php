@@ -48,18 +48,32 @@ $laptop = query("SELECT * FROM laptop")
         </div>
       </div>
       <div>
-
-        <?php foreach ($laptop as $l) : ?>
-          <p class="Nama">
-            <a href="php/detail.php?Id=<?= $l['Id'] ?>">
-              <?= $l['Nama'] ?>
-
-            </a>
-          </p>
-
-        <?php endforeach; ?>
-
       </div>
+
+      <section class="laptop">
+        <div class="container" id="container">
+          <div class="row pt-5">
+
+            <?php foreach ($laptop as $l) : ?>
+
+              <div class="col-sm-3 mb-3">
+                <div class="card  mt-3" style="background-color: black;">
+                  <img class="card-img-top" src="assets/img/<?= $l['Foto'] ?>" alt="Card image cap">
+                  <div class="card-body" style="background-color: black;">
+                    <h5 class="card-title"><?= $l["Nama"] ?></h5>
+                    <a href="php/detail.php?Id=<?= $l['Id'] ?>" class="btn btn-primary">Detail</a>
+                  </div>
+                </div>
+              </div>
+
+            <?php endforeach ?>
+
+          </div>
+        </div>
+      </section>
+
+
+
 
       <!-- Optional JavaScript -->
       <script src="js/bootstrap.min.js"></script>
