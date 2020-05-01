@@ -54,7 +54,7 @@ $laptop = query("SELECT * FROM laptop")
         <img src="assets/img/slide1.jpg" height="550px" width="auto" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="assets/img/slide3.jpg" height="550px" width="auto" class="d-block w-100 image2" alt="...">
+        <img src="assets/img/slide3.jpg" height="550px" width="auto" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
         <img src="assets/img/slider2.jpg" height="550px" width="auto" class="d-block w-100" alt="...">
