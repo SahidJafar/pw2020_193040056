@@ -2,6 +2,8 @@
 // menghubungkan dengan file php lainnya
 require 'functions.php';
 
+// Searching
+
 if (isset($_GET['cari'])) {
   $keyword = $_GET['keyword'];
   $laptop = query("SELECT * FROM laptop WHERE
