@@ -62,7 +62,7 @@ $laptop = query("SELECT * FROM laptop WHERE Id = $id")[0];
     <!-- Detail -->
     <div class="container align-content-center " style="margin-top: 200px;">
         <div class="Foto">
-            <img class="Foto" src="../assets/img/<?= $laptop["Foto"]; ?>" height="400px" width="500px" alt="">
+            <img class="Foto" src="../assets/img/<?= $laptop["Foto"]; ?>" alt="">
         </div>
 
         <div class="keterangan">
