@@ -39,7 +39,7 @@ if (isset($_POST['cari'])) {
       background-color: #E31C11;
       padding: 15px 0;
       margin-top: 150px;
-      height: 80px;
+      height: 70px;
     }
 
     .optionbar .container {
@@ -57,10 +57,12 @@ if (isset($_POST['cari'])) {
       padding-left: 80px;
       list-style: none;
       margin-left: -30px;
+      font-family: 'Times New Roman', Times, serif;
+      color: white;
     }
 
 
-    /* Slider */
+    /* Official store */
     #store {
       height: 350px;
       background-image: url('assets/img/store.jpg');
@@ -114,26 +116,28 @@ if (isset($_POST['cari'])) {
   </header>
 
   <!-- Slider -->
-  <div id="carouselExampleFade" class="carousel slide carousel-fade col-md" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="assets/img/slide1.jpg" height="550px" class="d-block w-100" alt="...">
+  <div class="col-d-xl-inline-block">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade col-md" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/img/slide1.jpg" height="550px" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/img/slide3.jpg" height="550px" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/img/slider2.jpg" height="550px" class="d-block w-100" alt="...">
+        </div>
       </div>
-      <div class="carousel-item">
-        <img src="assets/img/slide3.jpg" height="550px" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/img/slider2.jpg" height="550px" class="d-block w-100" alt="...">
-      </div>
+      <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </div>
 
   <!-- Official store -->

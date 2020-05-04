@@ -6,9 +6,6 @@ require 'php/functions.php';
 $laptop = query("SELECT * FROM laptop")
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +27,7 @@ $laptop = query("SELECT * FROM laptop")
       background-color: #E31C11;
       padding: 15px 0;
       margin-top: 150px;
-      height: 80px;
+      height: 70px;
     }
 
     .optionbar .container {
@@ -48,10 +45,12 @@ $laptop = query("SELECT * FROM laptop")
       padding-left: 80px;
       list-style: none;
       margin-left: -30px;
+      font-family: 'Times New Roman', Times, serif;
+      color: white;
     }
 
 
-    /* Slider */
+    /* Official store */
     #store {
       height: 350px;
       background-image: url('assets/img/store.jpg');
