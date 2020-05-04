@@ -73,7 +73,7 @@ $laptop = query("SELECT * FROM laptop WHERE Id = $id")[0];
 
         </div>
 
-        <button type="button" class="btn btn-danger btn-lg"><a href="../index.php">Kembali</a></button>
+        <a href="../index.php" class="btn btn-danger">Back</a></button>
     </div>
 
 
