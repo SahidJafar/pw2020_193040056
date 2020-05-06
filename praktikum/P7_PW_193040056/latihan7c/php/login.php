@@ -73,6 +73,7 @@ if (isset($_POST['login'])) {
     transform: translate(-50%, -50%);
     background-color: white;
     text-align: center;
+    border-radius: 5%;
   }
 
   .box h1 {

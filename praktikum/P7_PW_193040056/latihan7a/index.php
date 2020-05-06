@@ -102,7 +102,7 @@ if (isset($_POST['cari'])) {
       <div class="container">
         <div class="cart-option">
           <ul>
-            <li><a href="php/login.php"><img src="assets/img/login.png" title="Login/Register" alt=""> Login/Register</a></li>
+            <li><a href="php/login.php"><img src="assets/img/login.png" title="Login/Register" alt=""> <button class="btn-light">Login/Register</button></a></li>
           </ul>
 
         </div>
@@ -170,7 +170,7 @@ if (isset($_POST['cari'])) {
                 <img class="card-img-top" src="assets/img/<?= $l['Foto'] ?>" alt="Card image cap" height="200" width="150">
                 <div class="card-body">
                   <h5 class="card-title"><?= $l["Nama"] ?></h5>
-                  <a href="php/detail.php?Id=<?= $l['Id'] ?>" class="btn btn-danger">Detail</a>
+                  <a href="php/detail.php?id=<?= $l['Id'] ?>" class="btn btn-danger">Detail</a>
                 </div>
               </div>
             </div>

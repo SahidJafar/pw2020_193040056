@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2020 at 03:48 PM
+-- Generation Time: May 06, 2020 at 04:31 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -53,6 +53,25 @@ INSERT INTO `laptop` (`Id`, `Foto`, `Nama`, `Processor`, `Keterangan`, `Harga`) 
 (9, '9.PNG', 'Asus Zenbook Flip 14', 'AMD Ryzen 5 3500U', '8 GB RAM DDR4, 512 GB SSD, AMD Radeon Vega 10 Graphics', 'Rp 10.699.000,00'),
 (10, '10.PNG', 'Asus ROG Zephyrus S ', 'Intel Core i7-8750H', '8GB RAM DDR4, 1TB SSD, NVIDIA® GeForce RTX™ 2080 with Max-Q Design 8GB GDDR6 VRAM', 'Rp 47.999.000,00');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `Id` int(11) NOT NULL,
+  `username` varchar(256) NOT NULL,
+  `password` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`Id`, `username`, `password`) VALUES
+(3, 'admin', '$2y$10$Zk3DehHmFDeAKiUap86rJeNpkwJDBCm5k3XQYWmpfHu48Remux.aq');
+
 --
 -- Indexes for dumped tables
 --
@@ -64,6 +83,12 @@ ALTER TABLE `laptop`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -72,6 +97,12 @@ ALTER TABLE `laptop`
 --
 ALTER TABLE `laptop`
   MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
