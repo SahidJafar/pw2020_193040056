@@ -161,7 +161,7 @@ $laptop = query("SELECT * FROM laptop")
                 <img class="card-img-top" src="assets/img/<?= $l['Foto'] ?>" alt="Card image cap" height="200" width="150">
                 <div class="card-body">
                   <h5 class="card-title"><?= $l["Nama"] ?></h5>
-                  <a href="php/detail.php?Id=<?= $l['Id'] ?>" class="btn btn-danger">Detail</a>
+                  <a href="php/detail.php?id=<?= $l['Id'] ?>" class="btn btn-danger">Detail</a>
                 </div>
               </div>
             </div>
