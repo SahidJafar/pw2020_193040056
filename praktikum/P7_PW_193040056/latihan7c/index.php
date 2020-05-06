@@ -2,8 +2,17 @@
 //menghubungkan dengan file php lainnya
 require 'php/functions.php';
 
-//melakukan querry
-$laptop = query("SELECT * FROM laptop")
+// Searching
+if (isset($_POST['cari'])) {
+  $keyword = $_POST['keyword'];
+  $laptop = query("SELECT * FROM laptop WHERE
+  Nama LIKE '%$keyword%' OR
+  Processor LIKE '%$keyword%' OR
+  Keterangan LIKE '%$keyword%' OR
+  Harga LIKE '%$keyword%' ");
+} else {
+  $laptop = query("SELECT * FROM laptop");
+}
 ?>
 
 <head>
