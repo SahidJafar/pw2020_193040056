@@ -39,7 +39,8 @@ $mahasiswa = query("SELECT * FROM mahasiswa WHERE Id = $id");
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
-          <img src="img/unpas.png" width="50" height="50" class="d-inline-block align-top" alt="">
+          <img src="img/unpas.png" width="80" height="80" class="d-inline-block align-top" alt="">
+          <h4 style="margin: 5px;"> Ruang Admin </h4>
         </a>
       </div>
       <h3> Fakultas Teknik Universitas Pasundan</h3>

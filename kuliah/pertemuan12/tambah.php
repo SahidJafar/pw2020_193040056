@@ -99,6 +99,7 @@ if (isset($_POST['tambah'])) {
           </tr>
         </form>
       </table>
+      <button style="margin-left: -200px; margin-top: 10px;" class="tombol-kembali"><a href="index.php">Kembali</a></button>
     </div>
   </div>
 

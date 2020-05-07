@@ -40,15 +40,17 @@ if (isset($_POST['cari'])) {
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
           <img src="img/unpas.png" width="80" height="80" class="d-inline-block align-top" alt="">
-          <a href="logout.php">Logout</a>
+
         </a>
+        <div style="margin-left: 15px;">
+          <a href="logout.php" title="Keluar/Logout" onclick="return confirm('Yakin meninggalkan halaman ini?')"><img src="img/logout.png" alt="" height="40px;" width="40px;"></a>
+        </div>
       </div>
       <h3>Fakultas Teknik Universitas Pasundan</h3>
     </div>
   </nav>
 
   <!-- Daftar Mahasiswa -->
-  <a href="logout.php">Logout</a>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
