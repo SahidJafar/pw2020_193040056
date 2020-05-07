@@ -54,24 +54,24 @@ if (isset($_POST['cari'])) {
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="jumbotron bg-light text-center">
+        <div class="jumbotron bg-light text-center" style="margin-top: 50px;">
 
           <h3 style="margin: 150px;">DAFTAR MAHASISWA</h3>
 
 
-          <div class="btn" style="margin-top: -200px;">
-            <a class="btn btn-primary" href="tambah.php" role="button">Tambah Data Mahasiswa</a>
-            <br><br>
+          <div class="btn" style="margin-top: -180px;">
+            <a class="btn btn-primary" href="tambah.php" role="button" aria-setsize="fluid">Tambah Data Mahasiswa</a>
+
 
             <!-- Searching -->
-            <form action="" method="POST">
+            <form action="" method="POST" style="margin-top: 30px;">
               <input type="text" name="keyword" size="50" placeholder="Masukan yang akan dicari" autocomplete="off" autofocus>
               <button type="submit" name="cari">Search</button>
             </form>
           </div>
 
           <!-- Tabel -->
-          <div class="table-responsive" style="margin-top: -50px;">
+          <div class="table-responsive" style="margin-top: -40px;">
             <table class="table table-table-responsive-sm table-bordered table-striped table-hover" border=" 1" cellpadding="10" cellspacing="5" align="center">
               <thead>
                 <tr>
