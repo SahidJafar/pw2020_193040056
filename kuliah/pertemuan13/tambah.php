@@ -34,6 +34,18 @@ if (isset($_POST['tambah'])) {
   <title>Tambah Data Mahasiswa</title>
 </head>
 
+<style>
+  table tr td {
+    padding-bottom: 10px;
+  }
+
+  table tr td input[type="file"] {
+    position: relative;
+    left: 55px;
+
+  }
+</style>
+
 <body>
 
   <nav class="navbar  fixed-top navbar-expand-sm navbar-light bg-warning">
@@ -52,7 +64,7 @@ if (isset($_POST['tambah'])) {
     <div class="jumbotron bg-light text-center">
       <h3>Form Tambah Data Mahasiswa</h3>
       <table border="0" cellspacing="10" align="center">
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
           <tr>
             <label>
               <td>Nama</td>
@@ -89,7 +101,7 @@ if (isset($_POST['tambah'])) {
             <label>
               <td>Gambar</td>
               <td>:</td>
-              <td><input type="text" name="gambar" required></td>
+              <td> <input type="file" name="gambar"> </td>
             </label>
           </tr>
 
@@ -99,7 +111,7 @@ if (isset($_POST['tambah'])) {
           </tr>
         </form>
       </table>
-      <button style="margin-left: -200px; margin-top: 10px;" class="tombol-kembali"><a href="index.php">Kembali</a></button>
+      <button style="margin-left: -300px; margin-top: 10px;" class="tombol-kembali"><a href="index.php">Kembali</a></button>
     </div>
   </div>
 
