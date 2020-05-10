@@ -41,6 +41,17 @@ if (isset($_POST['ubah'])) {
   <link rel="stylesheet" href="css/bootstrap.min.css">
 
   <title>Ubah Data Mahasiswa</title>
+  <style>
+    table tr td {
+      padding-bottom: 10px;
+    }
+
+    table tr td input[type="file"] {
+      position: relative;
+      left: 55px;
+
+    }
+  </style>
 </head>
 
 <body>
@@ -61,7 +72,7 @@ if (isset($_POST['ubah'])) {
     <div class="jumbotron bg-light text-center">
       <h3>Form Ubah Data Mahasiswa</h3>
       <table border="0" cellspacing="10" align="center">
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="id" value="<?= $m['Id']; ?>">
           <tr>
             <label>
@@ -96,13 +107,17 @@ if (isset($_POST['ubah'])) {
           </tr>
 
           <tr>
+            <input type="hidden" name="gambar_lama" value="<?= $m['Gambar']; ?>">
             <label>
               <td>Gambar</td>
               <td>:</td>
-              <td><input type="text" name="gambar" id="Gambar" required value="<?= $m['Gambar']; ?>"></td>
+              <td> <input type="file" name="gambar" class="image" onchange="previewImage()"> </td>
             </label>
           </tr>
-
+          <tr>
+            <td><img src="img/<?= $m['Gambar']; ?>" class="img-preview" width="120px;" style="display: block;  position: relative;
+            left: 180px;"></td>
+          </tr>
           <tr>
             <td><button type="submit" name="ubah">Ubah Data!</button>
             </td>
@@ -118,6 +133,7 @@ if (isset($_POST['ubah'])) {
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
+  <script src="js/script.js"></script>
 </body>
 
 </html>

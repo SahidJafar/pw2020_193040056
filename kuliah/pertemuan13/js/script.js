@@ -20,3 +20,17 @@ keyword.addEventListener('keyup', function () {
   xhr.open('get', 'ajax/ajax_cari.php?keyword=' + keyword.value);
   xhr.send();
 });
+
+
+// Prevt gambar Image untuk Tambah dan Ubah
+function previewImage() {
+  const gambar = document.querySelector('.image');
+  const imgPreview = document.querySelector('.img-preview');
+
+  const oFReader = new FileReader();
+  oFReader.readAsDataURL(gambar.files[0]);
+
+  oFReader.onload = function (oFREvent) {
+    imgPreview.src = oFREvent.target.result;
+  };
+}
