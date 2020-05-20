@@ -3,19 +3,19 @@ session_start();
 require 'functions.php';
 
 if (isset($_SESSION['login'])) {
-  header("Location:admin.php");
+  header("Location: admin.php");
   exit;
 }
-//cek cookie
+// cek cookie
 if (isset($_COOKIE['username']) && isset($_COOKIE['hash'])) {
   $username = $_COOKIE['username'];
   $hash = $_COOKIE['hash'];
 
   //ambil username berdasarkan id
-  $result = mysqli_query(koneksi(), "SELECT * FROM user WHERE username= '$username'");
+  $result = mysqli_query(koneksi(), "SELECT * FROM user WHERE username= '$username' ");
   $row = mysqli_fetch_assoc($result);
 
-  //cek cookie dan username
+  // cek cookie dan username
   if ($hash == hash('sha256', $row['id'], false)) {
     $_SESSION['username'] = $row['username'];
     header("Location: admin.php");
@@ -54,14 +54,26 @@ if (isset($_POST['login'])) {
   $error = true;
 }
 ?>
+<html>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<!-- Jquery -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+
+<title>Login</title>
 <!-- MYCSS -->
 <style>
   body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #E31C11;
   }
 
   .box {
@@ -71,13 +83,13 @@ if (isset($_POST['login'])) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background-color: black;
     text-align: center;
     border-radius: 5%;
   }
 
   .box h1 {
-    color: black;
+    color: white;
     text-transform: uppercase;
     font-weight: 500;
   }
@@ -89,7 +101,7 @@ if (isset($_POST['login'])) {
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #db001a;
+    border: 2px solid white;
     padding: 14px 10px;
     width: 200px;
     outline: none;
@@ -102,7 +114,15 @@ if (isset($_POST['login'])) {
   .box input[type="text"]:focus,
   .box input[type="password"]:focus {
     width: 280px;
-    border-color: #8200b5;
+    border-color: red;
+  }
+
+  .box p a {
+    text-decoration: none;
+  }
+
+  .box p a:hover {
+    color: red;
   }
 
   .box input[type="submit"] {
@@ -111,7 +131,7 @@ if (isset($_POST['login'])) {
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #8200b5;
+    border: 2px solid red;
     padding: 14px 40px;
     outline: none;
     color: red;
@@ -121,13 +141,28 @@ if (isset($_POST['login'])) {
   }
 
   .box input[type="submit"]:hover {
-    background: #8200b5;
+    background-color: white;
+  }
+
+  label {
+    color: white;
   }
 </style>
 </head>
 
 <body>
+  <!-- Navbar -->
+  <nav class="navbar  fixed-top navbar-expand-sm navbar-light bg-white">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img src="../assets/img/logo.png" width="150" height="100" class="d-inline-block align-top" alt="">
+        </a>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Form -->
 
   <form class="box" action="" method="POST">
     <h1>Login</h1>
@@ -135,11 +170,11 @@ if (isset($_POST['login'])) {
       <p style="color: red; font-style: italic;">Username atau Password Salah</p>
 
     <?php endif; ?>
-    <input type="text" name="username" placeholder="Username" autofocus autocomplete="off" required>
-    <input type="password" name="password" placeholder="Password" required>
+    <input type="text" name="username" placeholder="Username" autofocus autocomplete="off" required style="color: white;">
+    <input type="password" name="password" placeholder="Password" required style="color: white;">
     <input type="checkbox" name="remember">
     <label for="remember">Remember me</label>
-    <p>Belum punya akun? Registrasi <a href="registrasi.php">Disini</a></p>
+    <p style="color: white;">Belum punya akun? Registrasi <a href="registrasi.php">Disini</a></p>
     <input type="submit" name="login" value="Login">
 
 

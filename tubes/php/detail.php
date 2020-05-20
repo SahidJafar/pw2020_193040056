@@ -37,32 +37,56 @@ $laptop = query("SELECT * FROM laptop WHERE Id = $id")[0];
         .Foto {
             width: 300px;
             float: left;
-            margin-right: 50px;
+            margin-right: 100px;
         }
 
-        a {
-            text-decoration: none;
+        button a {
             color: white;
+        }
+
+        button a:hover {
+            text-decoration: none;
+            color: black;
         }
     </style>
 </head>
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar  fixed-top navbar-expand-sm navbar-light bg-white">
-        <div class="container-fluid">
+    <div class="container-fluid">
+        <nav class="navbar  fixed-top navbar-expand-sm navbar-light bg-white">
+
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand page-scroll" href="#home">
                     <img src="../assets/img/logo.png" width="150" height="100" class="d-inline-block align-top" alt="">
                 </a>
             </div>
-        </div>
+
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon ml-auto"></span>
+            </button>
+            <div class="collapse navbar-collapse ml-auto" id="navbarNav">
+                <div class="ml ml-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link page-scroll" href="../index.php">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.php">Tentang Kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="../index.php#searching">Produk</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
     </nav>
 
     <!-- Detail -->
-    <div class="container align-content-center " style="margin-top: 200px;">
+    <div class="container container-fluid align-content-center " style="margin-top: 200px;">
         <div class="Foto">
-            <img class="Foto" src="../assets/img/<?= $laptop["Foto"]; ?>" alt="">
+            <img class="Foto" src="../assets/img/<?= $laptop["Foto"]; ?>" class="img-fluid" alt="">
         </div>
 
         <div class="keterangan">

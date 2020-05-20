@@ -34,7 +34,7 @@ function tambah($data)
 
     $query = "INSERT INTO laptop
                     VALUES
-                    ('','$foto','$nama','$processor','$keterangan','$harga')";
+                    (NULL,'$foto','$nama','$processor','$keterangan','$harga')";
 
     mysqli_query($conn, $query);
 
@@ -56,11 +56,11 @@ function ubah($data)
 {
     $conn = koneksi();
     $id = htmlspecialchars($data['Id']);
-    $foto = htmlspecialchars($data['Foto']);
-    $nama = htmlspecialchars($data['Nama']);
-    $processor = htmlspecialchars($data['Processor']);
-    $keterangan = htmlspecialchars($data['Keterangan']);
-    $harga = htmlspecialchars($data['Harga']);
+    $foto = htmlspecialchars($data['foto']);
+    $nama = htmlspecialchars($data['nama']);
+    $processor = htmlspecialchars($data['processor']);
+    $keterangan = htmlspecialchars($data['keterangan']);
+    $harga = htmlspecialchars($data['harga']);
 
     $query = "UPDATE laptop
                 SET
@@ -97,7 +97,7 @@ function registrasi($data)
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     // tambah user baru
-    $query_tambah = "INSERT INTO user VALUES('','$username','$password')";
+    $query_tambah = "INSERT INTO user VALUES(NULL,'$username','$password')";
     mysqli_query($conn, $query_tambah);
 
     return mysqli_affected_rows($conn);

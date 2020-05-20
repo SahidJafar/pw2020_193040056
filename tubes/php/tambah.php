@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["username"])) {
-  header("Location:login.php");
+  header("Location: login.php");
   exit;
 }
 //Mengubungkan ke fili php lainnya
@@ -12,12 +12,12 @@ if (isset($_POST['tambah'])) {
   if (tambah($_POST) > 0) {
     echo "<script> 
         alert('Data berhasil ditambahkan');
-        document.location.href = 'admin.php';      
+        document.location.href = 'produk.php';      
     </script>";
   } else {
     echo "<script> 
     alert('Data gagal ditambahkan');
-    document.location.href = 'admin.php';      
+    document.location.href = 'produk.php';      
     </script>";
   }
 }
@@ -47,6 +47,10 @@ if (isset($_POST['tambah'])) {
 
       text-decoration: none;
     }
+
+    .tambah ul li {
+      list-style: none;
+    }
   </style>
 
 </head>
@@ -59,7 +63,7 @@ if (isset($_POST['tambah'])) {
     </a>
     <div class="icon ml-auto">
       <h5>
-        <a href="../index.php"> <i class="fas fa-sign-out-alt mr-3 fa-2x " data-toogle="tooltip" title="Sign Out"></i></a>
+        <a href="logout.php" onclick="return confirm('Yakin meninggalkan halaman admin?')"> <i class="fas fa-sign-out-alt mr-3 fa-2x " data-toogle="tooltip" title="Sign Out"></i></a>
       </h5>
     </div>
     </div>
@@ -73,25 +77,27 @@ if (isset($_POST['tambah'])) {
           <hr class="bg-bg-secondary">
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="produk.php"><i class="fas fa-laptop mr-2"></i>Products</a>
+          <a class="nav-link text-white" href="produk.php"><i class="fas fa-laptop mr-2"></i>Produk</a>
           <hr class="bg-bg-secondary">
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="tambah.php"><i class="fas fa-plus mr-2"></i>Add Product</a>
+          <a class="nav-link text-white" href="tambah.php"><i class="fas fa-plus mr-2"></i>Tambah Produk</a>
           <hr class="bg-bg-secondary">
         </li>
       </ul>
     </div>
 
+    <!-- Tambah Data -->
     <div class="col-md-5 p-5 pt-4">
-      <h3>ADD PRODUCT</h3>
+      <h3>Tambah Produk</h3>
       <div class="row">
-        <form action="" method="POST">
+        <form action="" method="POST" class="tambah" enctype="multipart/form-data">
           <ul>
             <li>
               Foto <br>
               <label for="Foto"></label>
-              <input type="text" name="foto" id="Foto" required><br><br>
+              <input type="file" name="Foto" class="photo" id="Foto" onchange="previewImage()"><br><br>
+              <img src="../assets/img/nophoto.jpg" class="img-preview" width="120px;" style="display: block;  position: relative;"></td>
             </li>
 
             <li>
@@ -120,15 +126,12 @@ if (isset($_POST['tambah'])) {
             <br>
 
             <button type="submit" name="tambah">Tambah Data</button>
-            <button type="submit">
-              <a href="admin.php" style="text-decoration: none; color:black;">Kembali</a>
-            </button>
           </ul>
         </form>
       </div>
 
       <script src="../js/bootstrap.min.js"></script>
-      <script src="../js/admin.js"></script>
+      <script src="../js/script.js"></script>
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

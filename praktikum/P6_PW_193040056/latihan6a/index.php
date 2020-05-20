@@ -105,7 +105,7 @@ if (isset($_POST['cari'])) {
       <div class="container">
         <div class="cart-option">
           <ul>
-            <li><img src="assets/img/login.png" title="Login/Register" alt=""> Login/Register</li>
+            <li><a href="php/admin.php"><img src="assets/img/login.png" title="Admin" alt=""></li></a>
           </ul>
 
         </div>

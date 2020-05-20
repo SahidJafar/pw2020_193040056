@@ -254,7 +254,7 @@ function registrasi($data)
   //insert ke tabel user
   $query = "INSERT INTO user
                 VALUES
-             (null, '$username', '$password_baru')";
+             (NULL, '$username', '$password_baru')";
   mysqli_query($conn, $query) or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);
 }

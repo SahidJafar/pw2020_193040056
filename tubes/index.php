@@ -2,18 +2,16 @@
 //menghubungkan dengan file php lainnya
 require 'php/functions.php';
 
-// Searching
+$laptop = query("SELECT * FROM laptop");
+
+// Ketika tombol cari diklik
 if (isset($_POST['cari'])) {
-  $keyword = $_POST['keyword'];
-  $laptop = query("SELECT * FROM laptop WHERE
-  Nama LIKE '%$keyword%' OR
-  Processor LIKE '%$keyword%' OR
-  Keterangan LIKE '%$keyword%' OR
-  Harga LIKE '%$keyword%' ");
-} else {
-  $laptop = query("SELECT * FROM laptop");
+  $laptop = cari($_POST['keyword']);
 }
+
 ?>
+
+<html id="home">
 
 <head>
   <meta charset="UTF-8">
@@ -31,6 +29,11 @@ if (isset($_POST['cari'])) {
 
   <!-- MYCSS -->
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
     /* OptionBar */
     .optionbar {
       background-color: #E31C11;
@@ -58,10 +61,15 @@ if (isset($_POST['cari'])) {
       color: white;
     }
 
+    .carousel-item.active,
+    .carousel-item-next,
+    .carousel-item-prev {
+      display: block !important;
+    }
 
     /* Official store */
     #store {
-      height: 350px;
+
       background-image: url('assets/img/store.jpg');
       background-repeat: no-repeat;
       background-size: cover;
@@ -79,7 +87,8 @@ if (isset($_POST['cari'])) {
 
     #store img {
       margin-top: -60px;
-      height: 350px;
+      height: 250px;
+      width: 320px;
     }
   </style>
 </head>
@@ -87,22 +96,42 @@ if (isset($_POST['cari'])) {
 <body>
   <!-- NAVBAR -->
   <header>
-    <nav class="navbar  fixed-top navbar-expand-sm navbar-light bg-white">
-      <div class="container-fluid">
+    <div class="container-fluid">
+      <nav class="navbar  fixed-top navbar-expand-sm navbar-light bg-white">
+
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand page-scroll" href="#home">
             <img src="assets/img/logo.png" width="150" height="100" class="d-inline-block align-top" alt="">
           </a>
         </div>
-      </div>
+
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon ml-auto"></span>
+        </button>
+        <div class="collapse navbar-collapse ml-auto" id="navbarNav">
+          <div class="ml ml-auto">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link page-scroll" href="#home">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="php/about.php">Kontak</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#searching">Produk</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
     </nav>
 
     <!-- Option Bar -->
     <div class="optionbar col-md">
-      <div class="container">
+      <div class="container-fluid">
         <div class="cart-option">
           <ul>
-            <li><a href="php/login.php"><img src="assets/img/login.png" title="Login/Register" alt=""><button class="btn-light">Login/Register</button></a></li>
+            <li><a href="php/login.php"><img src="assets/img/login.png" title="Login/Register" alt=""></a></li>
           </ul>
 
         </div>
@@ -113,27 +142,34 @@ if (isset($_POST['cari'])) {
   </header>
 
   <!-- Slider -->
-  <div id="carouselExampleFade" class="carousel slide carousel-fade col-md" data-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="assets/img/slide1.jpg" height="550px" class="d-block w-100" alt="...">
+        <img class="d-block w-100" src="assets/img/slide1.jpg" height="500px;" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img src="assets/img/slide3.jpg" height="550px" class="d-block w-100" alt="...">
+        <img class="d-block w-100" src="assets/img/slide3.jpg" height="500px;" alt="Second slide">
       </div>
       <div class="carousel-item">
-        <img src="assets/img/slider2.jpg" height="550px" class="d-block w-100" alt="...">
+        <img class="d-block w-100" src="assets/img/slide2.jpg" height="500px;" alt="Third slide">
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
+
+
 
   <!-- Official store -->
   <div class="jumbotron jumbotron-fluid" id="store">
@@ -147,53 +183,67 @@ if (isset($_POST['cari'])) {
 
   <!-- Searching -->
   <div class="container col-md">
-    <div class="row pt-5">
+    <div class="row pt-5" id="searching">
       <form action="#container" method="POST" style="margin-left: 20px;">
-        <input type="text" name="keyword" size="50" placeholder="Search for Product" autocomplete="off">
-        <button type="submit" name="cari">Search</button>
+        <input type="text" name="keyword" size="50" placeholder="Cari Produk Laptop Asus" autocomplete="off" class="keyword">
+        <button type="submit" name="cari" class="tombol-cari">Search</button>
       </form>
     </div>
-  </div>
-  <?php if (empty($laptop)) : ?>
-    <h1>Data tidak ditemukan</h1>
 
-  <?php else : ?>
-    <section class="laptop">
-      <div class="container" id="container">
+    <div class="live">
 
-        <div class="row pt-5">
+      <section class="laptop">
+        <?php if (empty($laptop)) : ?>
+          <h1>Produk tidak tersedia</h1>
+        <?php else : ?>
+          <div class="row pt-5">
+            <?php foreach ($laptop as $l) : ?>
+              <div class="col-sm-4 mb-3">
+                <div class="card mt-3">
+                  <img src="assets/img/<?= $l['Foto']; ?>" class="card-img-top img-fluid" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-tittle"><?= $l['Nama']; ?></h5>
+                    <a href="php/detail.php?id=<?= $l['Id']; ?>" class="btn btn-danger">Detail</a>
 
-          <?php foreach ($laptop as $l) : ?>
+                  </div>
 
-            <div class="col-sm-4 mb-3">
-              <div class="card  mt-3">
-                <img class="card-img-top" src="assets/img/<?= $l['Foto'] ?>" alt="Card image cap" height="200" width="150">
-                <div class="card-body">
-                  <h5 class="card-title"><?= $l["Nama"] ?></h5>
-                  <a href="php/detail.php?id=<?= $l['Id'] ?>" class="btn btn-danger">Detail</a>
                 </div>
+
               </div>
-            </div>
+            <?php endforeach; ?>
+          <?php endif; ?>
+          </div>
 
-          <?php endforeach ?>
-        <?php endif; ?>
+
+      </section>
+    </div>
+  </div>
+
+  <footer class="text-white" style="background-color: #E31C11;">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <p>Copyright 2020.</p>
         </div>
+
       </div>
-    </section>
+    </div>
+
+  </footer>
 
 
 
-
-    <!-- Optional JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script>
-      $('.carousel').carousel({
-        interval: 2500
-      })
-    </script>
+  <!-- Optional JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script>
+    $('.carousel').carousel({
+      interval: 2500
+    })
+  </script>
 </body>
 
-</html
+</html>

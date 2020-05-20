@@ -2,24 +2,11 @@
 session_start();
 
 if (!isset($_SESSION["username"])) {
-  header("Location:login.php");
+  header("Location: login.php");
   exit;
 }
 // menghubungkan dengan file php lainnya
 require 'functions.php';
-
-// Searching
-
-if (isset($_GET['cari'])) {
-  $keyword = $_GET['keyword'];
-  $laptop = query("SELECT * FROM laptop WHERE
-  Nama LIKE '%$keyword%' OR
-  Processor LIKE '%$keyword%' OR
-  Keterangan LIKE '%$keyword%' OR
-  Harga LIKE '%$keyword%' ");
-} else {
-  $laptop = query("SELECT * FROM laptop");
-}
 
 ?>
 <!DOCTYPE html>
@@ -51,9 +38,9 @@ if (isset($_GET['cari'])) {
     }
 
     .card-body-icon {
-      position: absolute;
+      position: relative;
       z-index: 0;
-      top: 25px;
+      top: 20px;
       right: 4px;
       opacity: 0.4;
       font-size: 90px;
@@ -74,7 +61,7 @@ if (isset($_GET['cari'])) {
     </a>
     <div class="icon ml-auto">
       <h5>
-        <a href="../index.php"> <i class="fas fa-sign-out-alt mr-3 fa-2x " data-toogle="tooltip" title="Sign Out"></i></a>
+        <a href="logout.php" onclick="return confirm('Yakin meninggalkan halaman admin?')"> <i class="fas fa-sign-out-alt mr-3 fa-2x " data-toogle="tooltip" title="Sign Out"></a></i>
       </h5>
     </div>
     </div>
@@ -88,29 +75,35 @@ if (isset($_GET['cari'])) {
           <hr class="bg-bg-secondary">
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="produk.php"><i class="fas fa-laptop mr-2"></i>Products</a>
+          <a class="nav-link text-white" href="produk.php"><i class="fas fa-laptop mr-2"></i>Produk</a>
           <hr class="bg-bg-secondary">
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="tambah.php"><i class="fas fa-plus mr-2"></i>Add Product</a>
+          <a class="nav-link text-white" href="tambah.php"><i class="fas fa-plus mr-2"></i>Tambah Produk</a>
           <hr class="bg-bg-secondary">
         </li>
       </ul>
     </div>
 
-    <div class="col-md-5 p-5 pt-4">
+    <!-- Dashboard -->
+    <div class="col-md-5 p-4 pt-5">
       <h3><i class="fas fa-dungeon mr-3 ">DASHBOARD</i></h3>
-      <div class="row text-white">
+      <div class="container mt-5">
+        <h1 style="text-align: center;">SELAMAT DATANG</h1>
+        <h5 style="text-align: center;">di Ruang Portal Admin Acep Store</h5>
+      </div>
+      <div class="row text-white mt-5 justify-content-center">
         <div class="card bg-info ml-3 mb-2" style="width: 18rem;">
           <div class="card-body">
             <div class="card-body-icon">
               <i class="fas fa-laptop mr-2"></i>
             </div>
+            <?php
+            $laptop = query("SELECT Nama FROM laptop");
+            $hitunglaptop = count($laptop); ?>
+
             <h5 class="card-title">Total of Product</h5>
-            <div class="display-4">10</div>
-            <a href="">
-              <p class="card-text text-white">Detail<i class="fas fa-angle-double-right ml-2"></i></p>
-            </a>
+            <div class="display-4"><?php echo $hitunglaptop; ?></div>
           </div>
         </div>
         <div class="card bg-success ml-3 mb-2" style="width: 18rem;">
@@ -118,33 +111,40 @@ if (isset($_GET['cari'])) {
             <div class="card-body-icon">
               <i class="fas fa-users"></i>
             </div>
-            <h5 class="card-title">Total of User</h5>
-            <div class="display-4">10</div>
-            <a href="">
-              <p class="card-text text-white">Detail<i class="fas fa-angle-double-right ml-2"></i></p>
-            </a>
+            <?php
+            $user = query("SELECT username FROM user");
+            $hitunguser = count($user); ?>
+            <h5 class="card-title">Total of Admin</h5>
+            <div class="display-4"><?php echo $hitunguser; ?></div>
           </div>
         </div>
       </div>
-      <div class="row mt-4">
-        <div class="card ml-3">
-          <div class="card-header bg-danger display-4 pt-4 pb-4">
-            <i class="fab fa-instagram ml-4"></i>
+      <!-- Contact -->
+      <section id="Contact" class="Contact mb-5">
+        <div class="container">
+          <div class="row pt-4 mb-4">
+            <div class="col text-center">
+              <h2>Keluhan Admin</h2>
+
+            </div>
           </div>
-          <div class="card-body">
-            <h5 class="card-title text-danger">INSTAGRAM</h5>
-            <a href="#" class="btn btn-danger">FOLLOW</a>
-          </div>
-        </div>
-      </div>
+
+          <div class="row justify-content-center">
+            <div class="col-xs-2">
+              <div class="card text-white bg-danger mb-3">
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center;">Contact Person</h5>
+                  <p class="card-text"><a href="https://about.me/sahidjafar"><i class="far fa-paper-plane fa-5x" style="padding-left: 10px;"></p></a></i>
+                </div>
+              </div>
 
 
-      <!-- Optional JavaScript -->
-      <script src="../js/bootstrap.min.js"></script>
-      <script src="../js/admin.js"></script>
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+              <!-- Optional JavaScript -->
+              <script src="../js/bootstrap.min.js"></script>
+              <script src="../js/admin.js"></script>
+              <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+              <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
 

@@ -34,7 +34,7 @@ function tambah($data)
 
     $query = "INSERT INTO laptop
                     VALUES
-                    ('','$foto','$nama','$processor','$keterangan','$harga')";
+                    (NULL,'$foto','$nama','$processor','$keterangan','$harga')";
 
     mysqli_query($conn, $query);
 
